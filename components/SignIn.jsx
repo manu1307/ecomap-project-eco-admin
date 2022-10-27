@@ -65,13 +65,17 @@ export default function SignIn() {
 	};
 
 	const Login = async () => {
-		// axios
-		// 	.post("http://43.200.176.153:8080/api/v1/members/login", {
-		// 		loginId: "1234",
-		// 		password: "1234",
-		// 	})
-		// 	.then((response) => console.log(response));
-		window.location.href = "/dashboard";
+		axios({
+			method: "post",
+			url: "http://43.200.176.153:8080/api/v1/members/login",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			data: JSON.stringify({
+				loginId: loginId,
+				password: loginPassword,
+			}),
+		}).then((response) => console.log(response));
 	};
 	const SignUp = () => {
 		window.location.href = "/signup";
