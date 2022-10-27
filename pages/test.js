@@ -41,11 +41,10 @@
 //   );
 // };
 
-// export default function test() {
-//   return (
-//     <>
-//       <FontButton />;
-//       <Line options={options} data={data} />
-//     </>
-//   );
-// }
+export default function test() {
+	return (
+		<>
+			<div>test</div>
+		</>
+	);
+}
