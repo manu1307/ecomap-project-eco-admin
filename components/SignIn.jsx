@@ -54,7 +54,7 @@ const LoginButton = styled.a`
 export default function SignIn() {
 	const [loginId, setLoginId] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
-	const [loginToken, setLoginToken] = useState("");
+	let loginToken = "1234";
 
 	const onChangeLoginId = (event) => {
 		setLoginId(() => event.target.value);
@@ -66,18 +66,17 @@ export default function SignIn() {
 	};
 
 	const Login = async () => {
-		axios({
-			method: "post",
-			url: "http://43.200.176.153:8080/api/v1/members/login",
-			headers: {
-				"Content-Type": "application/json",
-				withCredentials: true,
-			},
-			data: JSON.stringify({
-				loginId: loginId,
-				password: loginPassword,
-			}),
-		}).then((response) => setLoginToken(response.data.token));
+		// axios({
+		// 	method: "post",
+		// 	url: "http://43.200.176.153:8080/api/v1/members/login",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	data: JSON.stringify({
+		// 		loginId: loginId,
+		// 		password: loginPassword,
+		// 	}),
+		// }).then((response) => console.log(response.data.token));
 
 		if (loginToken) {
 			window.location.href = "/dashboard";
