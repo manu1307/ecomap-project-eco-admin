@@ -54,6 +54,7 @@ const LoginButton = styled.a`
 export default function SignIn() {
 	const [loginId, setLoginId] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
+	const [loginToken, setLoginToken] = useState("");
 
 	const onChangeLoginId = (event) => {
 		setLoginId(() => event.target.value);
@@ -75,7 +76,13 @@ export default function SignIn() {
 				loginId: loginId,
 				password: loginPassword,
 			}),
-		}).then((response) => console.log(response));
+		}).then((response) => setLoginToken(response.data.token));
+
+		if (loginToken) {
+			window.location.href = "/dashboard";
+		} else {
+			console.log("fail login");
+		}
 	};
 	const SignUp = () => {
 		window.location.href = "/signup";
