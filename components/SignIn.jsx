@@ -71,6 +71,7 @@ export default function SignIn() {
 			url: "http://43.200.176.153:8080/api/v1/members/login",
 			headers: {
 				"Content-Type": "application/json",
+				withCredentials: true,
 			},
 			data: JSON.stringify({
 				loginId: loginId,
